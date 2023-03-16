@@ -1,7 +1,6 @@
 const { ipcRenderer } = require('electron');
-const isDev = true;
+const isDev = ipcRenderer.invoke('get-is-dev');
 
-console.log(isDev);
 
 class Splash {
     constructor() {
@@ -16,7 +15,8 @@ class Splash {
     async startAnimation() {
         let splashes = [
             { "message": "Nouvelle version !", "author": "Guillaume" },
-            { "message": "BLABLABLA", "author": "Guillaume" }
+            { "message": "BLABLABLA", "author": "Guillaume" },
+            { "message": "VERSION 0.2.0 DISPONIBLE !", "author": "Guillaume" }
         ]
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;

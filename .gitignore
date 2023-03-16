@@ -8,6 +8,9 @@
 # Seen in standard and sdk versions
 credits.html
 locales/
+dist/
+build/
+AppData/
 libEGL.dll
 libGLEv2.dll
 node.dll

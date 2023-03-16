@@ -1,1 +1,1 @@
-{"net":{"http_server_properties":{"servers":[],"version":5},"network_qualities":{"CAISABiAgICA+P////8B":"4G"}}}
+{"net":{"http_server_properties":{"servers":[{"alternative_service":[{"advertised_alpns":["h3"],"expiration":"13326000744528072","port":443,"protocol_str":"quic"}],"anonymization":[],"network_stats":{"srtt":24567},"server":"https://api.chatengine.io","supports_spdy":true}],"supports_quic":{"address":"192.168.1.3","used_quic":true},"version":5},"network_qualities":{"CAISABiAgICA+P////8B":"4G"}}}

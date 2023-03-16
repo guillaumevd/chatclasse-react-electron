@@ -2,7 +2,7 @@ const electron = require("electron");
 const path = require("path");
 const os = require("os");
 let updateWindow = undefined;
-const isDev = true;
+const isDev = require('electron-is-dev');
 
 function getWindow() {
     return updateWindow;
@@ -20,17 +20,17 @@ function createWindow() {
         title: "Mise à jour",
         width: 400,
         height: 500,
-        resizable: false,
+        icon: path.join(electron.app.getAppPath(), 'build', 'assets', 'images', 'icon') + `.${os.platform() === "win32" ? "ico" : "png"}`,
         transparent: os.platform() === 'win32',
         frame: false,
         show: false,
+        resizable: false,
         webPreferences: {
             contextIsolation: false,
             nodeIntegration: true,
             enableRemoteModule: true
         },
     });
-    updateWindow.webContents.openDevTools()
     electron.Menu.setApplicationMenu(null);
     updateWindow.setMenuBarVisibility(false);
     updateWindow.loadFile(

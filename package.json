@@ -1,5 +1,5 @@
 {
-  "name": "client_v0.0.1",
+  "name": "client",
   "version": "0.1.0",
   "description": "Descripton de l'appli",
   "author": {
@@ -11,7 +11,7 @@
   "homepage": "./",
   "repository": {
     "type" : "git",
-    "url" : ""
+    "url" : "git+https://github.com/guillaumevd/chatclasse-react-electron.git"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -19,13 +19,14 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron:serve": "concurrently -k \"cross-env BROWSER=none yarn start\" \"yarn electron:start\"",
-    "electron:build": "yarn build && electron-builder -c.extraMetadata.main=build/main.js",
+    "electron:build": "yarn build && electron-builder -c.extraMetadata.main=main_process/app.js",
     "electron:start": "wait-on tcp:127.0.0.1:3000 && electron ."
   },
   "build": {
     "extends": null,
     "appId": "be.guillaumevd.chatclasse",
     "files": [
+      "main_process/**/*",
       "dist/**/*",
       "build/**/*",
       "node_modules/**/*",

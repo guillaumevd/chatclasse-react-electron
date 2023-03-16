@@ -3,7 +3,7 @@ const path = require("path");
 const os = require("os");
 let mainWindow = undefined;
 
-const isDev = true;
+const isDev = require('electron-is-dev');
 
 function getWindow() {
     return mainWindow;
@@ -24,7 +24,7 @@ function createWindow() {
         minWidth: 980,
         minHeight: 552,
         resizable: true,
-        icon: `./src/assets/images/icon.${os.platform() === "win32" ? "ico" : "png"}`,
+        icon: path.join(electron.app.getAppPath(), 'build', 'assets', 'images', 'icon') + `.${os.platform() === "win32" ? "ico" : "png"}`,
         transparent: os.platform() === 'win32',
         show: false,
         webPreferences: {
@@ -33,7 +33,6 @@ function createWindow() {
             enableRemoteModule: true
         },
     });
-    mainWindow.webContents.openDevTools()
     electron.Menu.setApplicationMenu(null);
     mainWindow.setMenuBarVisibility(false);
     if (isDev) {

@@ -7,7 +7,7 @@ const fs = require('fs');
 const UpdateWindow = require("./windows/update");
 const MainWindow = require("./windows/main");
 
-const isDev = true;
+const isDev = require('electron-is-dev');
 
 if (isDev) {
     let appPath = path.resolve('./AppData/App').replace(/\\/g, '/');
@@ -25,6 +25,9 @@ if (!gotTheLock) {
     });
 }
 
+ipcMain.handle('get-is-dev', () => {
+    return isDev
+})
 ipcMain.on('update-window-close', () => UpdateWindow.destroyWindow())
 ipcMain.on('update-window-dev-tools', () => UpdateWindow.getWindow().webContents.openDevTools())
 ipcMain.on('main-window-open', () => MainWindow.createWindow())
