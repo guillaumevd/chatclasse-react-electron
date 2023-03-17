@@ -1,14 +1,20 @@
 appId: 'be.guillaumevd.chatclasse'
-productName: 'Chat Classe'
+productName: 'ChatClasse'
 artifactName: '${productName}-setup-${version}.${ext}'
 
 copyright: 'Copyright © 2022 Guillaume Vandriessche'
 
 asar: true
 compression: 'maximum'
+extends: null
 
 files:
   - '!{dist,.gitignore,.vscode,docs,dev-app-update.yml,.nvmrc,.eslintrc.json}'
+  - 'main_process/**/*'
+  - 'dist/**/*'
+  - 'build/**/*'
+  - 'node_modules/**/*'
+  - 'package.json'
 
 extraResources:
   - 'libraries'
