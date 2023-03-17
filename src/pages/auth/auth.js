@@ -88,7 +88,7 @@ const AuthPage = (props) => {
               />
             </div>
             <div className="auth">
-              <div className="auth-label">Mot de passe</div>
+              <div className="auth-label">Email</div>
               <input
                 className="auth-input"
                 type="text"
@@ -98,7 +98,7 @@ const AuthPage = (props) => {
               />
             </div>
             <div className="auth">
-              <div className="auth-label">Mot de passe</div>
+              <div className="auth-label">Prénom</div>
               <input
                 className="auth-input"
                 type="text"
@@ -108,7 +108,7 @@ const AuthPage = (props) => {
               />
             </div>
             <div className="auth">
-              <div className="auth-label">Mot de passe</div>
+              <div className="auth-label">Nom de famille</div>
               <input
                 className="auth-input"
                 type="text"
