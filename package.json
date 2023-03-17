@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "Descripton de l'appli",
   "private": true,
   "author": {
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/guillaumevd/chatclasse-react-electron.git"
   },
   "scripts": {
-    "build": "rimraf build dist && yarn version --patch && react-scripts build && electron-builder build",
+    "build": "rimraf build dist && yarn version --patch && react-scripts build && electron-builder",
     "serve": "concurrently -k \"cross-env BROWSER=none react-scripts start\" \"yarn start\"",
     "start": "wait-on tcp:127.0.0.1:3000 && cross-env-shell NODE_ENV=dev electron ."
   },
@@ -39,6 +39,7 @@
     "babel": "^6.23.0",
     "electron-updater": "^5.3.0",
     "graceful-fs": "^4.2.11",
+    "less": "^4.1.3",
     "typescript": "^5.0.2"
   },
   "devDependencies": {
