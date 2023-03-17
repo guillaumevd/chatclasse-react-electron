@@ -58,7 +58,3 @@ linux:
 directories:
   buildResources: 'build'
   output: 'dist'
-
-publish:
-  - github
-  - bitbucket
