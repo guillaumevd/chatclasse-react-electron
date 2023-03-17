@@ -1,7 +1,7 @@
 {
   "name": "client",
   "preductname": "Chat Classe",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Descripton de l'appli",
   "author": {
     "name": "Guillaume Vandriessche",
@@ -15,13 +15,9 @@
     "url": "git+https://github.com/guillaumevd/chatclasse-react-electron.git"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "electron:serve": "concurrently -k \"cross-env BROWSER=none yarn start\" \"yarn electron:start\"",
-    "electron:build": "rimraf build && yarn version --patch && yarn build && node build.js",
-    "electron:start": "wait-on tcp:127.0.0.1:3000 && cross-env-shell NODE_ENV=dev electron ."
+    "build": "rimraf build dist && yarn version --patch && react-scripts build && node build.js",
+    "serve": "concurrently -k \"cross-env BROWSER=none yarn start\" \"yarn electron:start\"",
+    "start": "wait-on tcp:127.0.0.1:3000 && cross-env-shell NODE_ENV=dev electron ."
   },
   "eslintConfig": {
     "extends": [
