@@ -25,6 +25,16 @@ if (!gotTheLock) {
     });
 }
 
+ipcMain.handle('fetch', async (event, url) => {
+    return new Promise((resolve, reject) => {
+        fetch(url).then(config => {
+            return resolve(config.json());
+        }).catch(error => {
+            return reject(error);
+        })
+    })
+});
+
 ipcMain.on('update-window-close', () => UpdateWindow.destroyWindow())
 ipcMain.on('update-window-dev-tools', () => UpdateWindow.getWindow().webContents.openDevTools())
 ipcMain.on('main-window-open', () => MainWindow.createWindow())

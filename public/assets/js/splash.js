@@ -35,7 +35,7 @@ class Splash {
     }
 
     async checkUpdate() {
-        if (isDev) return this.startLauncher();
+        if (isDev) return this.maintenanceCheck();
         this.setStatus(`Recherche de mise à jour...`);
 
         ipcRenderer.invoke('update-app').then(err => {
@@ -61,14 +61,13 @@ class Splash {
     }
 
     async maintenanceCheck() {
-      this.startLauncher();
-      // config.GetConfig().then(res => {
-      //     if (res.maintenance) return this.shutdown(res.maintenance_message);
-      //     this.startLauncher();
-      // }).catch(e => {
-      //     console.error(e);
-      //     return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
-      // })
+    ipcRenderer.invoke('fetch', 'http://146.59.227.84:3001').then(res => {
+        if (res.maintenance) return this.shutdown(res.maintenance_message);
+            this.startLauncher();
+        }).catch(e => {
+            console.error(e);
+            return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultérieurement.");
+        })
     }
 
     startLauncher() {
