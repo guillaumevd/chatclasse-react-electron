@@ -21,6 +21,7 @@ extraResources:
 
 # Windows Configuration
 win: 
+  icon: 'build/assets/images/icon.ico'
   target: 
     - target: 'nsis'
       arch: 'x64'
@@ -34,6 +35,7 @@ nsis:
 
 # macOS Configuration
 mac:
+  icon: 'build/assets/images/icon.icns'
   target:
     - target: 'dmg'
       arch:
@@ -44,6 +46,7 @@ mac:
 
 # Linux Configuration
 linux: 
+  icon: 'build/assets/images/icon.png'
   target: 'AppImage'
   maintainer: 'Guillaume Vandriessche'
   vendor: 'Guillaume Vandriessche'
@@ -55,3 +58,7 @@ linux:
 directories:
   buildResources: 'build'
   output: 'dist'
+
+publish:
+  - github
+  - bitbucket
