@@ -2,7 +2,7 @@ const electron = require("electron");
 const path = require("path");
 const os = require("os");
 let updateWindow = undefined;
-const isDev = require('electron-is-dev');
+const isDev = process.env.NODE_ENV === 'dev';
 
 function getWindow() {
     return updateWindow;

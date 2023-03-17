@@ -106,3 +106,15 @@ body {
   color: white; 
   background: rgb(43, 47, 60);
 }
+
+::-webkit-scrollbar {
+  
+  width: 8px;
+  
+  height: 10px;
+
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #c2c9d2;
+}

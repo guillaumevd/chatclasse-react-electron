@@ -1,0 +1,51 @@
+appId: 'be.guillaumevd.chatclasse'
+productName: 'Chat Classe'
+artifactName: '${productName}-setup-${version}.${ext}'
+
+copyright: 'Copyright © 2022 Guillaume Vandriessche'
+
+asar: true
+compression: 'maximum'
+
+files:
+  - '!{dist,.gitignore,.vscode,docs,dev-app-update.yml,.nvmrc,.eslintrc.json}'
+
+extraResources:
+  - 'libraries'
+
+# Windows Configuration
+win: 
+  target: 
+    - target: 'nsis'
+      arch: 'x64'
+
+# Windows Installer Configuration
+nsis:
+  oneClick: true
+  allowToChangeInstallationDirectory: false
+  createDesktopShortcut: true
+  runAfterFinish: true
+
+# macOS Configuration
+mac:
+  target:
+    - target: 'dmg'
+      arch:
+        - 'x64'
+        - 'arm64'
+  artifactName: '${productName}-setup-${version}-${arch}.${ext}'
+  category: 'public.app-category.games'
+
+# Linux Configuration
+linux: 
+  target: 'AppImage'
+  maintainer: 'Guillaume Vandriessche'
+  vendor: 'Guillaume Vandriessche'
+  synopsis: 'Group chat app with react'
+  description: 'Group chat app with react description'
+  category: 'Game'
+
+
+directories:
+  buildResources: 'build'
+  output: 'dist'
